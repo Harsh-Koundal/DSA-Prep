@@ -16,9 +16,20 @@ int starpattern1(int n){
     }
 }
 
+int starpattern2(int n){
+     for(int i=0;i<n;i++){
+
+        for(char ch = 'A';ch<='A'+i;ch++){
+            cout << ch;
+        }
+        cout << endl;
+    }
+}
+
 int main(){
     int n = 5;
     starpattern1(n);
+    starpattern2(n);
 }
 
 // Output 
@@ -30,5 +41,15 @@ int main(){
 123     321
 1234   4321
 12345 54321 
+
+*/
+
+/*
+
+A
+AB
+ABC
+ABCD
+ABCDE
 
 */
