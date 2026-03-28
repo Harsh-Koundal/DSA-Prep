@@ -40,29 +40,31 @@
 
 // Deep copy 
 
-const user1 = {
-    name:"test",
-    address:{
-        city:"test",
-    },
-};
+// const user1 = {
+//     name:"test",
+//     address:{
+//         city:"test",
+//     },
+// };
 
-const user2 = structuredClone(user1);
-const deepCopt = JSON.parse(JSON.stringify(user1));
+// const user2 = structuredClone(user1);
+// const deepCopt = JSON.parse(JSON.stringify(user1));
 
-user2.address.city = "Mumbai";
+// user2.address.city = "Mumbai";
 
-console.log(user1.address.city);
-console.log(deepCopt.address.city);
+// console.log(user1.address.city);
+// console.log(deepCopt.address.city);
 
 
-const arr = [1,2,3,4];
+// const arr = [1,2,3,4];
 
-const test = arr.map((a,b)=>a*b);
-console.log(test);
+// const test = arr.map((a,b)=>a*b);
+// console.log(test);
 
-const test1 = arr.filter((num)=>num%2===0);
-console.log(test1);
+// const test1 = arr.filter((num)=>num%2===0);
+// console.log(test1);
 
-const test2 = arr.reduce((curr,next)=>curr+next);
-console.log(test2);
+// const test2 = arr.reduce((curr,next)=>curr+next);
+// console.log(test2);
+
+
