@@ -68,3 +68,314 @@
 // console.log(test2);
 
 
+// var a = 3;
+// console.log(a);
+
+
+// const parent = document.querySelector(".container");
+
+// parent.addEventListener("click",(event)=>{
+//     if(event.target.tagName === "BUTTON"){
+//         console.log("Botton Clicked");
+//     }
+// })
+
+
+
+//Debouncing 
+
+// runs function after specific time ;
+
+// function debounce(fn, delay){
+//     let timer;
+//     return function(...args){
+//         clearTimeout(timer);
+
+//         timer = setTimeout(()=>{
+//             fn.apply(this,args);
+//         },delay);
+//     };
+// }
+
+// function search(query){
+//     console.log("Searching:",query);
+// }
+
+// const debounceSearch = debounce(search,500);
+
+// input.addEventListener("input",(e)=>{
+//     debounceSearch(e.target.value);
+// });
+
+
+// debounceSearch("H");
+// debounceSearch("Ha");
+// debounceSearch("Har");
+// debounceSearch("Hars");
+// debounceSearch("Harsh");
+
+
+// Throttling
+
+// runs function only ones in specific time ;
+
+// function throttle(fn,delay){
+//     let lastCall = 0;
+//     return function(...args){
+//         const now = Date.now();
+
+//         if(now - lastCall >= delay){
+//             lastCall = now;
+//             fn.apply(this,args);
+//         }
+//     };
+// }
+
+// function handelScroll(){
+//     console.log("Scroll event");
+// }
+
+// const throttledScroll = throttle(handelScroll,1000);
+
+// window.addEventListener("scroll",throttledScroll);
+
+
+
+
+// callback function 
+// function abc(fn){
+//     fn();
+// }
+
+// function fn(){
+//     console.log("hello");
+// }
+
+// abc(fn);
+
+
+// const arr = [1,2,3,4,5,6,6,];
+
+// // const uniqArr = [...new Set(arr)];
+
+// const uniqArr = arr.filter((item,index)=>{
+//     return arr.indexOf(item) === index;
+// })
+// console.log(uniqArr);
+
+
+// Valid Parenthesis
+
+// const isValid = (s)=>{
+//     const stack = [];
+//     const map = {
+//          ')':'(',
+//          '}':'{',
+//          ']':'[',
+//     };
+
+//     for(let char of s){
+//         if(char==='(' || char==='{' || char === '['){
+//             stack.push(char);
+//         }else{
+//             const top = stack.pop();
+
+//             if(top !== map[char]) return false;
+//         }
+//     }
+//     return stack.length === 0;
+// }
+
+// console.log(isValid("()"));
+// console.log(isValid(")("));
+
+
+//polyfill
+/*
+Array.prototype.myForEach = function(callback){
+    for(let i=0;i<this.length;i++){
+        callback(this[i],i,this);
+    }
+}
+
+const arr = [1,2,3,4];
+
+arr.myForEach((item)=>{
+    console.log(item);
+})
+*/
+
+// let a = 10;
+// let b = 20;
+// [a,b] = [b,a];
+// console.log(a,b);
+
+// let arr = [1,2,3,4,5,6];
+// let copy = arr[0];
+
+// for(let i=0;i<arr.length;i++){
+//     arr[i] = arr[i+1];
+// }
+// arr[arr.length-1] = copy;
+
+// console.log(arr);
+
+// Debouncing 
+
+/*
+function debounce(fn,delay){
+    let timer;
+    return function(...args){
+        clearTimeout(timer);
+        timer = setTimeout(()=>{
+            fn.apply(this,args);
+        },delay)
+    }
+}
+
+function search(query){
+    console.log("Searching:",query)
+}
+
+const debouncedSearch = debounce(search, 1000);
+
+
+debouncedSearch("h")
+debouncedSearch("ha")
+debouncedSearch("har")
+debouncedSearch("hars")
+debouncedSearch("harsh")
+
+*/
+
+
+/*
+function flatten(arr){
+    let result = [];
+
+    for(let item of arr){
+        if(Array.isArray(item)){
+            result = result.concat(flatten(item));
+        }else{
+            result.push(item);
+        }
+    }
+    return result;
+};
+
+console.log(flatten([1,2,3,4,[1,2,3,[5,6,7,8]]]));
+
+*/
+
+// && return first falsy value if first value is truthy so it return second value
+/*
+console.log(true && 0);  // 0
+console.log(false && 0); // false
+console.log("a" && "b"); // b
+*/
+
+//return first truthy value 
+/*
+console.log(0 || "ok"); // ok
+console.log("first" || "x");  // first
+*/
+
+
+// console.log(null == undefined) //ture
+// console.log(null === undefined) // false
+// console.log(undefined === undefined) // true
+// console.log(null == null) // true
+// console.log(null === null) // true
+// console.log(Number(null)) // 0
+// console.log(Number(undefined)) // NaN
+// console.log(11 - "sh") // NaN
+// console.log("1" - "2") // -1
+// console.log("a" + 1) // a1
+
+
+// console.log(null > 0) // false
+// console.log(null >= 0) // true
+// console.log(null === 0) // false
+// console.log(null == 0) // false
+
+// console.log(0 || 5) // 5
+// console.log(0 ?? 5) // 0
+// console.log(null ?? 5) // 5
+
+// console.log(null + 1) // 1
+// console.log(false + 1) // 1
+// console.log(true + 1) // 2
+// console.log(undefined + 1) // NaN
+
+// console.log(10 + "hye" + 10) // 10hye10
+// console.log({}+{}) // [object Object][object Object]
+// console.log([] + [3,53]) // 3,53
+// console.log([] + []) // 
+// console.log(true === true) // true
+// console.log(0.1+0.3 == 0.4) // true
+// console.log(0.1+0.3 === 0.4) // true
+// console.log(false == []) // true
+// console.log(false === []) // false
+
+// console.log(false ==! []) // true
+// console.log(false == "") // true
+// console.log(false === "") // false
+
+// console.log(false == null)  // false
+// console.log(false == undefined) // false
+// console.log(false ==! []) // true
+// console.log([] == []) // false
+// console.log({} == {}) // false
+// console.log([] == "") // true
+// console.log([] == 0) // true
+// console.log([""] == 0) // true
+// console.log([1] == 1) // true
+// console.log([1] === 1) // true
+
+// How do you create a string in JavaScript? (using quotes and String () constructor)
+/*
+const name = "Harsh";
+const world = 'world'
+console.log("Hello " + name + world);
+
+const age = 22;
+console.log(`My age is ${age}`);
+
+
+const str = new String("Hello");
+console.log(str);
+*/
+
+
+/*
+const str = "java script";
+const name = "      H    arsh        ";
+const test = "Hello World Hello";
+
+console.log(str.slice(-6)); // script
+console.log(str.substring(-6)); // javascript
+console.log(str.substr(0,4)); // java
+console.log(str.startsWith("java")) // true
+console.log(str.endsWith("script")) // true
+console.log(str.includes("script")) // true
+console.log(name.trim()); // H     arsh
+console.log(name.trimStart()) // H    arsh
+console.log(name.trimEnd()) //        H     arsh      
+
+
+console.log(test.indexOf("Hello")) // 0
+console.log(test.lastIndexOf("Hello")) // 12
+
+console.log(test.replace("Hello","Bye")) // Bye World Hello
+console.log(test.replaceAll("Hello","Bye")) // Bye World Bye
+
+console.log(test.split(" ")); // [ 'Hello', 'World', 'Hello' ]
+
+const arr = ["apple", "banana", "mango"];
+
+console.log(arr.join(", ")); // apple, banana , mango
+
+console.log(str.repeat(3)); // java scriptjava scriptjava script
+
+*/
+
