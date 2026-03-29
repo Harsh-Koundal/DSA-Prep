@@ -379,3 +379,51 @@ console.log(str.repeat(3)); // java scriptjava scriptjava script
 
 */
 
+// const str = "Harsh abc";
+// const arr = ["Java","Script"]
+// const mp = [10,20,40,60];
+// const users = [
+//     {id:1,name:"Harsh"},
+//     {id:2,name:"Anku"},
+//     {id:3,name:"Suvransu"},
+// ]
+
+// console.log(str.slice(0,1)); 
+// console.log(arr.splice(1,2));
+// console.log(mp.find((num)=> num > 100));
+
+// console.log(users.find((u)=>u.id===2));
+
+// const strs = "aharsh3039@gmail.com";
+// console.log(strs.slice(strs.indexOf(".")));
+
+
+
+// const arr = [10,20,30,40,50,60];
+
+// // console.log(arr.map((num)=>num*2));
+// // console.log(arr.map((num)=>num>2)); 
+
+// let a = [1,2,3];
+// let b = a;
+// b.push(20);
+// console.log(a) // 1,2,3,20
+// console.log(b) // 1,2,3,20
+
+// const arr = [{k:12},{a:123},{b:9}];
+
+// for(let char of arr){
+//     console.log(Object.keys(char)[0]);
+// }
+
+
+let arr1 = [10,20,30,40,5,2];
+
+
+let abc = arr1.toSorted((a,b)=>a-b);
+console.log(abc);
+console.log(arr1);
+
+arr1.sort((a,b)=>a-b);
+console.log(arr1);
+
