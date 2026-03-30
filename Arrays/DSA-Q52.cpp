@@ -1,0 +1,46 @@
+// Check if Strings Can be Made Equal With Operations II
+
+/*
+
+You are given two strings s1 and s2, both of length n, consisting of lowercase English letters.
+
+You can apply the following operation on any of the two strings any number of times:
+
+Choose any two indices i and j such that i < j and the difference j - i is even, then swap the two characters at those indices in the string.
+Return true if you can make the strings s1 and s2 equal, and false otherwise.
+*/
+
+#include <iostream>
+#include <vector>
+#include<algorithm>
+using namespace std;
+
+bool canBeEqual(string s1, string s2){
+    string even1 = "", odd1 = "";
+    string even2 = "", odd2 = "";
+
+    for(int i=0;i<s1.length();i++){
+        if(i%2 == 0){
+            even1 += s1[i];
+            even2 += s2[i];
+        }else{
+            odd1 += s1[i];
+            odd2 += s2[i];
+        }
+    }
+    
+
+    sort(even1.begin(),even1.end());
+    sort(even2.begin(),even2.end());
+    sort(odd1.begin(),odd1.end());
+    sort(odd2.begin(),odd2.end());
+
+    return even1 == even2 && odd1 == odd2;
+}
+
+int main(){
+    string s1 = "abcd";
+    string s2 = "cdab";
+    cout << (canBeEqual(s1,s2)?"True":"False");
+    return 0;
+}
