@@ -417,13 +417,97 @@ console.log(str.repeat(3)); // java scriptjava scriptjava script
 // }
 
 
-let arr1 = [10,20,30,40,5,2];
+// let arr1 = [10,20,30,40,5,2];
 
 
-let abc = arr1.toSorted((a,b)=>a-b);
-console.log(abc);
-console.log(arr1);
+// let abc = arr1.toSorted((a,b)=>a-b);
+// console.log(abc);
+// console.log(arr1);
 
-arr1.sort((a,b)=>a-b);
-console.log(arr1);
+// arr1.sort((a,b)=>a-b);
+// console.log(arr1);
 
+
+// const arr = [10,"harsh",'C'];
+// const number = [];
+// const string = [];
+// const char = [];
+
+// arr.map((element)=>{
+//     if(typeof element === "number") number.push(element);
+//     else if( typeof element === "string"){
+//         if(element.length === 1) char.push(element);
+//         else string.push(element);
+//     }
+// })
+
+// console.log(number);
+// console.log(string);
+// console.log(char);
+
+
+
+// console.log(arr.reduce((acc,curr)=>acc+curr));
+
+// polyfill for map 
+Array.prototype.myMap = function(callback){
+    let temp = [];
+    for(let i=0;i<this.length;i++){
+        temp.push(callback(this[i],i,this));
+        
+    }
+    return temp;
+}
+
+// Polyfill for filter 
+
+Array.prototype.myFilter = function(cb){
+    let result = [];
+    for(let i=0;i<this.length;i++){
+        if(cb(this[i],i,this)){
+            result.push(this[i]);
+        }
+    }
+    return result;
+};
+
+// Polyfill for reduce
+
+Array.prototype.myReduce = function(callback, initialValue) {
+    let accumulator = initialValue;
+
+    for (let i = 0; i < this.length; i++) {
+        accumulator = callback(accumulator, this[i], i, this);
+    }
+
+    return accumulator;
+};
+
+const arr = [1,2,3,4,5];
+
+// console.log(arr.myMap((num)=>num*3));
+// console.log(arr.myFilter((num)=>num>3));
+// console.log(arr.myReduce((acc,cur)=>acc+cur,0));
+
+
+
+let students = [
+    {name:"Piyush",rollNumber:31,marks:30},
+    {name:"Harsh",rollNumber:31,marks:90},
+    {name:"Anku",rollNumber:31,marks:40},
+    {name:"sumire",rollNumber:31,marks:32},
+];
+
+let names = [];
+
+students.map((stduent)=>{
+    names.push(stduent.name);
+})
+
+
+console.log(students.map((obj)=>Object.keys(obj)));
+console.log(students.filter((student)=>student.marks>33));
+console.log(students.reduce((acc,curr)=>acc+curr.marks,0))
+console.log(students.filter((student)=>{
+    if(student.marks>33) return student.name;
+}));
