@@ -723,4 +723,96 @@ function a(){
 }
 };
 
-a();
+// a();
+
+
+ const arr1 = [];
+
+ function maxProfit(arr){
+    let minPrice = arr[0];
+    let maxProfit = 0;
+    let minDay = 0;
+    let buyDay = 0;
+    let sellDay = 0;
+
+    for(let i=0;i<arr.length;i++){
+
+        // update minimum price and its day
+        if(arr[i] < minPrice){
+            minPrice = arr[i];
+            minDay = i;
+        }
+
+        // calculate current profit
+        let profit = arr[i] - minPrice;
+
+        // update best profit and days
+        if(profit > maxProfit){
+            maxProfit = profit;
+            buyDay = minDay;
+            sellDay = i;
+        }
+    }
+    return {
+        maxProfit,
+        buyDay,
+        sellDay,
+    }
+ }
+
+
+//  console.log(maxProfit(arr1));
+
+
+// 
+import _ from "lodash";
+
+const arr2 = [1,2,3,4,5,6,7,8,9];
+
+const result = _.chunk(arr2,3);
+
+// console.log(result);
+
+function chunk(arr2,size){
+    const result = [];
+
+    for(let i=0;i<arr2.length;i +=size){
+        result.push(arr2.slice(i,i+size));
+    }
+    return result;
+}
+
+// console.log(chunk(arr2,2));
+
+
+
+
+
+function f(a){
+    return function(b){
+        return function(c){
+            return a+b+c
+        }
+    }
+}
+
+const sums = f(2);
+
+// console.log(sums(4)(2));
+
+
+function calculator(operator){
+    return function(a){
+        return function(b){
+            if(operator=== "+") return a+b;
+            else if(operator=== "-") return a-b;
+            else if(operator=== "*") return a*b;
+            else if(operator=== "/") return a/b;
+        }
+    }
+}
+
+// console.log(calculator("+")(10)(20));
+// console.log(calculator("-")(10)(20));
+// console.log(calculator("*")(10)(20));
+// console.log(calculator("/")(10)(20));
