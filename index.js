@@ -764,7 +764,7 @@ function a(){
 //  console.log(maxProfit(arr1));
 
 
-// 
+// chunks
 import _ from "lodash";
 
 const arr2 = [1,2,3,4,5,6,7,8,9];
@@ -816,3 +816,15 @@ function calculator(operator){
 // console.log(calculator("-")(10)(20));
 // console.log(calculator("*")(10)(20));
 // console.log(calculator("/")(10)(20));
+
+
+
+// infanite currying 
+function add(a){
+    return function (b){
+        if(b) return add(a+b);
+        return a;
+    }
+}
+
+console.log(add(10)(20)(2)());
