@@ -505,9 +505,222 @@ students.map((stduent)=>{
 })
 
 
-console.log(students.map((obj)=>Object.keys(obj)));
-console.log(students.filter((student)=>student.marks>33));
-console.log(students.reduce((acc,curr)=>acc+curr.marks,0))
-console.log(students.filter((student)=>{
-    if(student.marks>33) return student.name;
-}));
+// console.log(students.map((obj)=>Object.keys(obj)));
+// console.log(students.filter((student)=>student.marks>33));
+// console.log(students.reduce((acc,curr)=>acc+curr.marks,0))
+// console.log(students.filter((student)=>{
+//     if(student.marks>33) return student.name;
+// }));
+
+
+/*
+1. How do you convert other data types to string? (String(),
+.toString())
+2. What happens when you compare strings using == and
+===?
+3. How are strings compared in JavaScript (lexicographically)?
+4. How do you convert a string to a number (parseInt(),
+Number(), parseFloat())?
+5. How do you check if a value is a string (typeof or
+instanceof)?
+*/
+
+// const a = true;
+// console.log(String(123)); // 123
+// console.log(a.toString()); // true
+// console.log("abc" < "abcd") // true 
+// console.log("abc" > "abcd")  // false
+// console.log((parseInt("123px"))) // 123
+
+
+// Reverse a string without using built-in reverse().
+function reverseString(str){
+    let reversed = "";
+
+    for(let i= str.length-1;i>=0;i--)
+        reversed += str[i];
+
+    return reversed;
+};
+
+// console.log(reverseString("harsh"));
+
+
+// Check if a string is a palindrome.
+
+function isPalindrome(str){
+    const reversed = str.split("").reverse().join("");
+
+    if(str === reversed) return true;
+    return false;
+}
+
+// console.log(isPalindrome("madam"));
+// console.log(isPalindrome("harsh"));
+
+
+// Count the number of vowels and consonants in a string.
+
+function countVowelsConsonants(str){
+    let vowels = 0;
+    let consonants = 0;
+    const vowel = "aeiouAEIOU";
+
+    for(let char of str){
+        if(vowel.includes(char)) vowels++;
+        else consonants++;
+    }
+    return {
+        vowels,
+        consonants,
+    };
+
+}
+
+// console.log(countVowelsConsonants("Harsh"));
+
+
+// Find the first non-repeated character in a string
+
+function nonRepeatedCharacter(str){
+    const freq = {};
+    
+    for(let char of str){
+        freq[char] = (freq[char] || 0) + 1;
+    }
+
+    for(let char of str){
+        if(freq[char]===1) return char;
+    }
+
+    return null;
+}
+
+// console.log(nonRepeatedCharacter('abcab'))
+
+
+
+function isValidParenthisis(str){
+    const stack = [];
+    const map = {
+        ')':'(',
+        '}':'{',
+        ']':'[',
+    };
+
+    for(let char of str){
+        if(char === '(' || char === '{' || char === '[') stack.push(char);
+        else {
+            const top = stack.pop();
+
+            if(top != map[char]) return false;
+        }
+    }
+    return stack.length === 0;
+}
+
+// console.log(isValidParenthisis("{}"));
+
+
+
+// IIFE 
+
+// (function (x){
+//     return (function (y){
+//         console.log(x);
+//     })(2);
+// })(1);
+
+function greetings(name){
+    console.log("hello " + name);
+}
+
+function processUserInout(callback){
+    let name = "test";
+    callback(name);
+}
+
+// processUserInout(greetings);
+
+
+//  Difference between Arrow function and regular function 
+
+// 1 - synatx 
+
+function greet(){
+    console.log("hello");
+}
+
+const greets = ()=>{
+    console.log("hello");
+}
+
+
+// 2 - argumesnts 
+
+function greeting(){
+    console.log("greeting from " + name);
+}
+
+const greetingss = ()=>{
+    console.log("greeting from " + name);
+}
+
+// 3 - this keyword 
+
+const user = {
+    name:"test",
+     greet : function (){
+        console.log("user name is " + this.name);
+    },
+    test : ()=>{ 
+        console.log("user name is " + this.name);
+    }
+}
+
+
+// user.greet();
+// user.test();
+
+
+function sum(a){
+    return function(b){
+        return function(c){
+            return function(d){
+                return a+b+c+d;
+            }
+        }
+    }
+}
+// console.log(sum(1)(2)(3)(4));
+
+
+function find(){
+    let a = [];
+
+    for(let i=0;i<10000000;i++)
+        a[i] = i*i;
+
+    return function(index){
+        console.log(a[index]);
+    }
+}
+
+const closure = find();
+
+// console.time("6000");
+// closure(6000);
+// console.timeEnd("6000");
+
+
+function a(){
+    for(var i=0;i<3;i++){
+        (function(j){
+            setTimeout(function (){
+            console.log(j);
+        },j*1000);
+    })(i);
+}
+};
+
+a();
