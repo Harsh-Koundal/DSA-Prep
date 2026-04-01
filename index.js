@@ -450,21 +450,21 @@ console.log(str.repeat(3)); // java scriptjava scriptjava script
 // console.log(arr.reduce((acc,curr)=>acc+curr));
 
 // polyfill for map 
-Array.prototype.myMap = function(callback){
+Array.prototype.myMap = function (callback) {
     let temp = [];
-    for(let i=0;i<this.length;i++){
-        temp.push(callback(this[i],i,this));
-        
+    for (let i = 0; i < this.length; i++) {
+        temp.push(callback(this[i], i, this));
+
     }
     return temp;
 }
 
 // Polyfill for filter 
 
-Array.prototype.myFilter = function(cb){
+Array.prototype.myFilter = function (cb) {
     let result = [];
-    for(let i=0;i<this.length;i++){
-        if(cb(this[i],i,this)){
+    for (let i = 0; i < this.length; i++) {
+        if (cb(this[i], i, this)) {
             result.push(this[i]);
         }
     }
@@ -473,7 +473,7 @@ Array.prototype.myFilter = function(cb){
 
 // Polyfill for reduce
 
-Array.prototype.myReduce = function(callback, initialValue) {
+Array.prototype.myReduce = function (callback, initialValue) {
     let accumulator = initialValue;
 
     for (let i = 0; i < this.length; i++) {
@@ -483,7 +483,7 @@ Array.prototype.myReduce = function(callback, initialValue) {
     return accumulator;
 };
 
-const arr = [1,2,3,4,5];
+const arr = [1, 2, 3, 4, 5];
 
 // console.log(arr.myMap((num)=>num*3));
 // console.log(arr.myFilter((num)=>num>3));
@@ -492,15 +492,15 @@ const arr = [1,2,3,4,5];
 
 
 let students = [
-    {name:"Piyush",rollNumber:31,marks:30},
-    {name:"Harsh",rollNumber:31,marks:90},
-    {name:"Anku",rollNumber:31,marks:40},
-    {name:"sumire",rollNumber:31,marks:32},
+    { name: "Piyush", rollNumber: 31, marks: 30 },
+    { name: "Harsh", rollNumber: 31, marks: 90 },
+    { name: "Anku", rollNumber: 31, marks: 40 },
+    { name: "sumire", rollNumber: 31, marks: 32 },
 ];
 
 let names = [];
 
-students.map((stduent)=>{
+students.map((stduent) => {
     names.push(stduent.name);
 })
 
@@ -534,10 +534,10 @@ instanceof)?
 
 
 // Reverse a string without using built-in reverse().
-function reverseString(str){
+function reverseString(str) {
     let reversed = "";
 
-    for(let i= str.length-1;i>=0;i--)
+    for (let i = str.length - 1; i >= 0; i--)
         reversed += str[i];
 
     return reversed;
@@ -548,10 +548,10 @@ function reverseString(str){
 
 // Check if a string is a palindrome.
 
-function isPalindrome(str){
+function isPalindrome(str) {
     const reversed = str.split("").reverse().join("");
 
-    if(str === reversed) return true;
+    if (str === reversed) return true;
     return false;
 }
 
@@ -561,13 +561,13 @@ function isPalindrome(str){
 
 // Count the number of vowels and consonants in a string.
 
-function countVowelsConsonants(str){
+function countVowelsConsonants(str) {
     let vowels = 0;
     let consonants = 0;
     const vowel = "aeiouAEIOU";
 
-    for(let char of str){
-        if(vowel.includes(char)) vowels++;
+    for (let char of str) {
+        if (vowel.includes(char)) vowels++;
         else consonants++;
     }
     return {
@@ -582,15 +582,15 @@ function countVowelsConsonants(str){
 
 // Find the first non-repeated character in a string
 
-function nonRepeatedCharacter(str){
+function nonRepeatedCharacter(str) {
     const freq = {};
-    
-    for(let char of str){
+
+    for (let char of str) {
         freq[char] = (freq[char] || 0) + 1;
     }
 
-    for(let char of str){
-        if(freq[char]===1) return char;
+    for (let char of str) {
+        if (freq[char] === 1) return char;
     }
 
     return null;
@@ -600,20 +600,20 @@ function nonRepeatedCharacter(str){
 
 
 
-function isValidParenthisis(str){
+function isValidParenthisis(str) {
     const stack = [];
     const map = {
-        ')':'(',
-        '}':'{',
-        ']':'[',
+        ')': '(',
+        '}': '{',
+        ']': '[',
     };
 
-    for(let char of str){
-        if(char === '(' || char === '{' || char === '[') stack.push(char);
+    for (let char of str) {
+        if (char === '(' || char === '{' || char === '[') stack.push(char);
         else {
             const top = stack.pop();
 
-            if(top != map[char]) return false;
+            if (top != map[char]) return false;
         }
     }
     return stack.length === 0;
@@ -631,11 +631,11 @@ function isValidParenthisis(str){
 //     })(2);
 // })(1);
 
-function greetings(name){
+function greetings(name) {
     console.log("hello " + name);
 }
 
-function processUserInout(callback){
+function processUserInout(callback) {
     let name = "test";
     callback(name);
 }
@@ -647,33 +647,33 @@ function processUserInout(callback){
 
 // 1 - synatx 
 
-function greet(){
+function greet() {
     console.log("hello");
 }
 
-const greets = ()=>{
+const greets = () => {
     console.log("hello");
 }
 
 
 // 2 - argumesnts 
 
-function greeting(){
+function greeting() {
     console.log("greeting from " + name);
 }
 
-const greetingss = ()=>{
+const greetingss = () => {
     console.log("greeting from " + name);
 }
 
 // 3 - this keyword 
 
 const user = {
-    name:"test",
-     greet : function (){
+    name: "test",
+    greet: function () {
         console.log("user name is " + this.name);
     },
-    test : ()=>{ 
+    test: () => {
         console.log("user name is " + this.name);
     }
 }
@@ -683,11 +683,11 @@ const user = {
 // user.test();
 
 
-function sum(a){
-    return function(b){
-        return function(c){
-            return function(d){
-                return a+b+c+d;
+function sum(a) {
+    return function (b) {
+        return function (c) {
+            return function (d) {
+                return a + b + c + d;
             }
         }
     }
@@ -695,13 +695,13 @@ function sum(a){
 // console.log(sum(1)(2)(3)(4));
 
 
-function find(){
+function find() {
     let a = [];
 
-    for(let i=0;i<10000000;i++)
-        a[i] = i*i;
+    for (let i = 0; i < 10000000; i++)
+        a[i] = i * i;
 
-    return function(index){
+    return function (index) {
         console.log(a[index]);
     }
 }
@@ -713,32 +713,32 @@ const closure = find();
 // console.timeEnd("6000");
 
 
-function a(){
-    for(var i=0;i<3;i++){
-        (function(j){
-            setTimeout(function (){
-            console.log(j);
-        },j*1000);
-    })(i);
-}
+function a() {
+    for (var i = 0; i < 3; i++) {
+        (function (j) {
+            setTimeout(function () {
+                console.log(j);
+            }, j * 1000);
+        })(i);
+    }
 };
 
 // a();
 
 
- const arr1 = [];
+const arr1 = [];
 
- function maxProfit(arr){
+function maxProfit(arr) {
     let minPrice = arr[0];
     let maxProfit = 0;
     let minDay = 0;
     let buyDay = 0;
     let sellDay = 0;
 
-    for(let i=0;i<arr.length;i++){
+    for (let i = 0; i < arr.length; i++) {
 
         // update minimum price and its day
-        if(arr[i] < minPrice){
+        if (arr[i] < minPrice) {
             minPrice = arr[i];
             minDay = i;
         }
@@ -747,7 +747,7 @@ function a(){
         let profit = arr[i] - minPrice;
 
         // update best profit and days
-        if(profit > maxProfit){
+        if (profit > maxProfit) {
             maxProfit = profit;
             buyDay = minDay;
             sellDay = i;
@@ -758,7 +758,7 @@ function a(){
         buyDay,
         sellDay,
     }
- }
+}
 
 
 //  console.log(maxProfit(arr1));
@@ -767,17 +767,17 @@ function a(){
 // chunks
 import _ from "lodash";
 
-const arr2 = [1,2,3,4,5,6,7,8,9];
+const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const result = _.chunk(arr2,3);
+const result = _.chunk(arr2, 3);
 
 // console.log(result);
 
-function chunk(arr2,size){
+function chunk(arr2, size) {
     const result = [];
 
-    for(let i=0;i<arr2.length;i +=size){
-        result.push(arr2.slice(i,i+size));
+    for (let i = 0; i < arr2.length; i += size) {
+        result.push(arr2.slice(i, i + size));
     }
     return result;
 }
@@ -788,10 +788,10 @@ function chunk(arr2,size){
 
 
 
-function f(a){
-    return function(b){
-        return function(c){
-            return a+b+c
+function f(a) {
+    return function (b) {
+        return function (c) {
+            return a + b + c
         }
     }
 }
@@ -801,13 +801,13 @@ const sums = f(2);
 // console.log(sums(4)(2));
 
 
-function calculator(operator){
-    return function(a){
-        return function(b){
-            if(operator=== "+") return a+b;
-            else if(operator=== "-") return a-b;
-            else if(operator=== "*") return a*b;
-            else if(operator=== "/") return a/b;
+function calculator(operator) {
+    return function (a) {
+        return function (b) {
+            if (operator === "+") return a + b;
+            else if (operator === "-") return a - b;
+            else if (operator === "*") return a * b;
+            else if (operator === "/") return a / b;
         }
     }
 }
@@ -820,11 +820,240 @@ function calculator(operator){
 
 
 // infanite currying 
-function add(a){
-    return function (b){
-        if(b) return add(a+b);
+function add(a) {
+    return function (b) {
+        if (b) return add(a + b);
         return a;
     }
 }
 
-console.log(add(10)(20)(2)());
+// console.log(add(10)(20)(2)());
+
+
+function order(restaurant) {
+    return function (size) {
+        return function (type) {
+            return `order placed: ${size} ${type} pizza from ${restaurant}`;
+        };
+    };
+}
+
+// console.log(order("Dominos")("Large")("Cheese Burst"));
+
+function calculatePrice(tax) {
+    return function (discount) {
+        return function (price) {
+            return price + tax - discount;
+        }
+    }
+}
+
+const itemPrice = calculatePrice(50)(20);
+
+// console.log(itemPrice(2000));
+
+
+function findMissing(arr) {
+    let n = arr.length + 1;
+    let sum = n * (n + 1) / 2;
+
+    let actualSum = arr.reduce((acc, curr) => acc + curr, 0);
+
+    return sum - actualSum;
+}
+
+// console.log(arr[0,1,2,3]);
+
+
+function twoSum(nums, target) {
+    const map = new Map();
+
+    for (let i = 0; i < nums.length; i++) {
+        let complement = target - nums[i];
+        if (map.has(complement)) {
+            return [map.get(complement), i];
+        }
+        map.set(nums[i], i);
+    }
+    return [];
+}
+
+
+// console.log(twoSum([1,2,3,4,5],9));
+
+
+
+
+
+// debounce using prebuilt function 
+
+const log = _.debounce((args) => {
+    console.log(args)
+}, 1000);
+
+// log("h");
+// log("he");
+// log("hel");
+// log("hell");
+// log("hello");
+
+
+
+function debounce(fn, t) {
+    let timer;
+    return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            fn.apply(this, args);
+        }, t);
+    };
+}
+
+const logs = debounce((text) => {
+    console.log(text);
+}, 1000);
+
+// logs("h")
+// logs("he")
+// logs("hel")
+// logs("hello")
+// logs("hello W")
+// logs("hello Wo")
+// logs("hello Worl")
+// logs("hello World")
+
+const login = _.throttle((msg) => {
+    console.log(msg);
+}, 1000, {
+    trailing: false
+});
+
+// login("he");
+// login("hell");
+// login("hello");
+
+
+let arr3 = [1, 2, [3, 4, [5, 6, [7, 8]]], 10, 11, 12];
+
+// console.log(arr3.flat(Infinity))
+
+
+
+// (function(){
+//     const user = {
+//         name:"Harsh",
+//         age:20,
+//         "test":true,
+//     };
+
+//     delete user.name;
+//     console.log(user);
+// })();
+
+
+
+const property = "fullName";
+const name = "Harsh Koundal";
+
+const user1 = {
+    age: 30,
+    [property]: name,
+    age: 20,
+};
+
+// console.log(user1);
+
+// console.log(Object.keys(user1)[0]);
+
+// for(let key in user1){
+//     console.log(user1[key]);
+// }
+
+
+const users = [
+    {
+        name: "Ankit",
+        age: 20,
+        isStudent: true,
+        skills: ["JS", "React"],
+        address: {
+            city:"Delhi"
+        }
+    },
+    {
+        name: "Ankit",
+        age: 20,
+        isStudent: true,
+        skills: ["JS", "React"],
+        address: null
+    },
+    {
+        name: "Ankit",
+        age: 20,
+        isStudent: true,
+        skills: ["JS", "React"],
+        address: null
+    },
+    {
+        name: "Ankit",
+        age: 20,
+        isStudent: true,
+        skills: ["JS", "React"],
+        address: null
+    },
+];
+
+
+// console.log(typeof users)
+
+// const test = JSON.stringify(users)
+// console.log(test);
+// console.log(typeof test)
+
+// const testing = JSON.parse(test);
+// console.log(testing)
+
+// const abcdef = '"hello"';
+// console.log(JSON.parse(abcdef)); 
+
+
+
+const xyz = {name:"anku",age:20};
+const admin = {admin:true,...xyz};
+
+// console.log(admin);
+
+
+const shape = {
+    radius : 10,
+    diameter(){
+        return this.radius*2;
+    },
+    perimeter:()=>2*Math.PI*this.radius,
+};
+
+// console.log(shape.diameter());
+// console.log(shape.perimeter());
+
+
+let c = {greeting:"Hey"};
+let d;
+
+d=c;
+d.greeting = "he;;";
+// console.log(c.greeting)
+
+
+// console.log([]==[]);
+// console.log([]===[]);
+// console.log({}=={});
+// console.log({}==={});
+
+
+const copy = {...users[0]};
+copy.name="harsh";
+copy.address.city="hp";
+console.log(copy);
+console.log(users[0]);
+
+
