@@ -8,7 +8,7 @@
 // // // // // })
 // // // // // promise
 // // // // // .then((res)=>console.log(res))
-// // // // // .catch((rej)=>console.log(rej));
+
 
 
 // // // // // const user = {
@@ -1441,3 +1441,149 @@ const search = debounce((msg)=>{
 // search("hell");
 // search("hello");
 
+function twoSum(nums,target){
+    const map = {};
+
+    for(let i=0;i<nums.length;i++){
+        const complement = target-nums[i];
+
+        if(map[complement] !== undefined){
+            return [map[complement],i];
+        }
+        map[nums[i]] = i;
+    }
+    return {};
+}
+
+// console.log(twoSum([2,7,11,15],9))
+
+
+// function maxProfit(prices){
+//     let minPrice = prices[0];
+//     let maxProfit = 0;
+//     let buyDay = 0;
+//     let sellDay = 0;
+
+//     for(let i=0;i<prices.length;i++){
+//         const profit = prices[i] - minPrice;
+//         if(minPrice > prices[i]){
+//            minPrice = prices[i];
+//            buyDay = i; 
+//         }
+//         if(maxProfit < profit){
+//             maxProfit = profit;
+//             sellDay = i;
+//         }
+//     }
+
+//     return {maxProfit,buyDay,sellDay};
+// }
+
+// // console.log(maxProfit([1,3,6,2,6,9]));
+
+
+// function isValid(s){
+//     const stack  = [];
+//     const map = {
+//         ')':'(',
+//         '}':'{',
+//         ']':'[',
+//     };
+
+//     for(let ch of s){
+//         if(ch === '(' || ch === '{' || ch === '['){
+//             stack.push(ch);
+//         }else{
+//             const top = stack.pop();
+
+//             if(top !== map[ch]){
+//                 return false;
+//             }
+//         }
+//     }
+//     return stack.length === 0;
+// }
+
+// // console.log(isValid("{}"))
+
+
+
+// function removeDuplicates(nums){
+//     if(nums.length===0) return 0;
+//     const newNums = [nums[0]];
+
+//     let i = 0;
+
+//     for(let j=1;j<nums.length;j++){
+//         if(nums[j] !== nums[i]){
+//             i=j;
+//             newNums.push(nums[i]);
+//         }
+//     }
+//     return newNums;
+// }
+
+// console.log(removeDuplicates([1, 1, 2, 2, 3, 4, 4]));
+
+// const arr = [1,1,2,2,4,5,7,5,4];
+// const arr1 = [...new Set(arr)];
+
+// console.log(arr1);
+
+// console.log(typeof removeDuplicates)
+// console.log(typeof null)
+// console.log(typeof undefined)
+// console.log(typeof NaN)
+
+// console.log(0.1+0.2 === 0.3)
+
+
+// function isPrime(n){
+//     if(n<=1) return "Not Prime";
+//     for(let i=2;i*i<=n;i++){
+//         if(n%i==0) return "Not Prime";
+//     }
+//     return "prime";
+// }
+
+// console.log(isPrime(2));
+
+function throttle(fn,delay){
+    let lastCall = 0;
+
+    return function(...args){
+        const now = Date.now();
+
+        if(now - lastCall >= delay){
+            lastCall = now;
+            fn.apply(this,args);
+        }
+    };
+}
+
+const test = throttle((msg)=>{
+    console.log(msg);
+},1000);
+
+test("he");
+test("hell");
+test("hello");
+
+
+function memoizedSquares(){
+    const cache = {};
+
+    return function(num){
+        if(cache[num])
+            return cache[num];
+
+        console.log("Calculating...");
+        cache[num] = num * num;
+        return cache[num];
+    }
+}
+
+const squares = memoizedSquares();
+
+// console.log(squares(4));
+// console.log(squares(4));
