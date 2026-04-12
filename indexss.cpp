@@ -7,12 +7,12 @@ using namespace std;
 vector<int> twoSum(vector<int>& nums,int target){
     unordered_map<int,int> map;
     for(int i=0;i<nums.size();i++){
-        int diff = nums[i] - target;
+        int diff = target - nums[i];
 
         if(map.find(diff) != map.end()){
             return  {map[diff],i};
         }
-        map[nums[diff],i] = i;
+        map[nums[i]] = i;
     }
     return {};
 }
