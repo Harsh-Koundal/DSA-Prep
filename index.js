@@ -18,3 +18,7 @@ const n = 7;
 let ans = 7%2==0
 
 console.log(ans?"even":"odd")
+
+
+
+
