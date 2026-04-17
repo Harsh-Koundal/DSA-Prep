@@ -13,6 +13,7 @@ function maxSubArray(arr){
 console.log(maxSubArray(arr));
 
 
+
 const n = 7;
 let ans = 7%2==0
 
